@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 🛡️ ReviewGuard — Fake Review Detection System
 
 A full-stack web application that detects fake reviews using AI heuristics.
@@ -107,4 +106,3 @@ npm run dev
 =======
 # fake-review-detection
 A web application that detects fake customer reviews using machine learning and natural language processing. It analyzes review text and classifies it as genuine or fake to help users make more reliable decisions.
->>>>>>> e4c2b9d3e16f770aad0deaadb02751435e4a0a4a
