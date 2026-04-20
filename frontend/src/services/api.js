@@ -1,10 +1,5 @@
 import axios from 'axios';
 
-// Debug (remove later if you want)
-console.log("ENV:", import.meta.env);
-console.log("API URL:", import.meta.env.VITE_API_URL);
-
-// Fallback to prevent undefined issues
 const API_BASE = import.meta.env.VITE_API_URL || 'http://localhost:5000';
 
 const api = axios.create({
