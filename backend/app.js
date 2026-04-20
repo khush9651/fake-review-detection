@@ -17,12 +17,20 @@ const allowedOrigins = [
 
 app.use(cors({
   origin: (origin, callback) => {
-    // Allow requests with no origin (e.g. curl, Postman)
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
-    } else {
-      callback(new Error(`CORS: origin "${origin}" not allowed`));
+    // allow tools like Postman or server-to-server calls
+    if (!origin) return callback(null, true);
+
+    // allow exact match
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     }
+
+    // allow Vercel preview URLs (optional but useful)
+    if (origin.includes('.vercel.app')) {
+      return callback(null, true);
+    }
+
+    return callback(new Error(`CORS blocked: ${origin}`));
   },
   methods: ['GET', 'POST'],
   credentials: true,
